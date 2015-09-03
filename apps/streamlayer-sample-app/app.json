@@ -1,6 +1,5 @@
 {
     "load": {
-        "bundleLocations": ["localbundles", "bundles"],
         "allowedBundles": [
             "custominfo",
             "streamlayerservice",
@@ -20,7 +19,8 @@
     },
     "bundles": {
         "custominfo": {
-            "CustomInfoToggleTool": [{
+            "CustomInfoToggleTool": [
+                {
                     "widgetSettings": {
                         "content": "${application.description}",
                         "window": {
@@ -48,8 +48,8 @@
                     "tooltip": "${application.infoTitle}",
                     "togglable": true,
                     "id": "AppInfoCustomInfoTool"
-                }],
-            "enabled": true
+                }
+            ]
         },
         "map": {
             "MappingResourceRegistryFactory": {
@@ -151,7 +151,8 @@
         },
         "toolset": {
             "ToolsetManager": {
-                "toolsets": [{
+                "toolsets": [
+                    {
                         "id": "mapview_tools",
                         "title": "${toolsets.mapviewTools}",
                         "tooltip": "${toolsets.mapviewToolsTooltip}",
@@ -167,7 +168,8 @@
                         "windowType": "css_positioned",
                         "cssClass": "notitle muted mapview_tools",
                         "deactivateToolsOnHide": true
-                    }]
+                    }
+                ]
             }
         }
     }
