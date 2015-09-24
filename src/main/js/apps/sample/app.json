@@ -1,179 +1,27 @@
 {
     "load": {
-        "bundleLocations": [
-            "bundles",
-            "localbundles"
-        ],
-        "allowedBundles": [
-            "custominfo",
-            "streamlayerservice",
-            "system",
-            "splashscreen",
-            "map",
-            "toolset",
-            "themes",
-            "templates",
-            "templatelayout",
-            "toolrules"
-        ],
-        "require": [
-            "${app}.app"
-        ],
+        "bundleLocations" : ["localbundles","bundles"],
+        "allowedBundles" : ["notifier","wizard","streamlayerservice","bustracker","system","splashscreen","map","themes","templates","templatelayout","windowmanager","toolset","toolrules","basemaptoggler"],
+        "skipBundles" : [],
+        "require" : ["${app}.app"],
         "i18n": ["bundle"]
     },
-    "bundles": {
-        "custominfo": {
-            "CustomInfoToggleTool": [
-                {
-                    "widgetSettings": {
-                        "content": "${application.description}",
-                        "window": {
-                            "marginBox": {
-                                "w": 280,
-                                "h": 270,
-                                "t": 60,
-                                "l": 20
-                            },
-                            "draggable": true,
-                            "closable": true,
-                            "modal": false,
-                            "maximizable": false,
-                            "resizable": true,
-                            "title": "${application.infoTitle}"
-                        }
-                    },
-                    "rules": {
-                        "groups": "custominfo",
-                        "activateOnStartup": true
-                    },
-                    "type": "IMPRINT",
-                    "toolClass": "ctInfo",
-                    "title": "${application.infoTitle}",
-                    "tooltip": "${application.infoTitle}",
-                    "togglable": true,
-                    "id": "AppInfoCustomInfoTool"
-                }
-            ]
-        },
-        "map": {
-            "MappingResourceRegistryFactory": {
-                "_knownServices": {
-                    "services": [
-                        {
-                            "id": "satellite_streamlayer",
-                            "url": "ws://geoeventsample3.esri.com:8080/satelliteservice",
-                            "type": "STREAM_LAYER"
-                        },
-                        {
-                            "id": "darkbase",
-                            "url": "http://services.arcgisonline.com/arcgis/rest/services/Canvas/World_Dark_Gray_Base/MapServer",
-                            "type": "AGS_TILED"
-                        }
-                    ]
-                }
-            },
-            "MapState": {
+    "bundles" : {
+        "map" : {
+            "MapState" : {
                 "initialExtent": {
-                    "xmin": -18014708.333775878,
-                    "ymin": -5496791.105604958,
-                    "xmax": 16352013.099489005,
-                    "ymax": 12153435.96977697,
-                    "spatialReference": {
-                        "wkid": 3857
-                    }
+                    "xmin": -13652648.195859605,
+                    "xmax": -13585956.888680877,
+                    "ymin": 6022016.456696275,
+                    "ymax": 6056948.178622554,
+                    "wkid": 3857
                 }
             },
-            "MapModelFactory": {
-                "_configData": {
-                    "maps": [
-                        {
-                            "id": "default",
-                            "glass_pane": [],
-                            "operationalLayer": [
-                                {
-                                    "title": "${service.satellite.title}",
-                                    "enabled": true,
-                                    "service": "satellite_streamlayer",
-                                    "wkid": "3857",
-                                    "displayCount": "1000",
-                                    "infoTemplate": {
-                                        "title": "Satellite Name: ${SatelliteName}",
-                                        "content": "Timestamp: ${DateTimeStamp}<br>Altitude: ${AltitudeMeters}m<br>Heading: ${Heading}°"
-                                    },
-                                    "symbol": {
-                                        "color": [
-                                            30,
-                                            122,
-                                            176,
-                                            150
-                                        ],
-                                        "size": 9,
-                                        "angle": 0,
-                                        "xoffset": 0,
-                                        "yoffset": 0,
-                                        "type": "esriSMS",
-                                        "style": "esriSMSCircle",
-                                        "outline": {
-                                            "color": [
-                                                5,
-                                                122,
-                                                176,
-                                                150
-                                            ],
-                                            "width": 0,
-                                            "type": "esriSLS",
-                                            "style": "esriSLSSolid"
-                                        }
-                                    }
-                                }
-                            ],
-                            "baseLayer": [
-                                {
-                                    "id": "background1",
-                                    "title": "${service.darkbase}",
-                                    "service": "darkbase",
-                                    "layers": [
-                                        "*"
-                                    ],
-                                    "enabled": true
-                                }
-                            ]
-                        }
-                    ]
-                }
-            }
-        },
-        "themes": {
-            "ThemeSelector": {
-                "componentEnabled": false
-            }
-        },
-        "templates": {
-            "TemplateSelector": {
-                "componentEnabled": false
-            }
-        },
-        "toolset": {
-            "ToolsetManager": {
-                "toolsets": [
-                    {
-                        "id": "mapview_tools",
-                        "title": "${toolsets.mapviewTools}",
-                        "tooltip": "${toolsets.mapviewToolsTooltip}",
-                        "tools": ["zoomInClickTool",
-                            "zoomOutClickTool",
-                            "locateme",
-                            "magnifier",
-                            "overviewmap",
-                            "AppInfoCustomInfoTool",
-                            "*CustomInfoTool"],
-                        "container": "map",
-                        "max_horizontal": 1,
-                        "windowType": "css_positioned",
-                        "cssClass": "notitle muted mapview_tools",
-                        "deactivateToolsOnHide": true
-                    }
-                ]
+            "MapModelFactory" : {
+                "_configLocation" : "${app}:services-init.json"
+            },
+            "MappingResourceRegistryFactory" : {
+                "_knownServicesLocation" : "${app}:services.json"
             }
         }
     }

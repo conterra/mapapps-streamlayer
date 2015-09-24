@@ -1,0 +1,63 @@
+{
+  "maps": [
+    {
+      "id": "default",
+      "glass_pane": [
+        {
+          "id": "bbox",
+          "enabled": true,
+          "graphics": []
+        }
+      ],
+      "operationalLayer": [
+        {
+          "title": "Seattle Bus Service",
+          "enabled": true,
+          "service": "seattle_busservice",
+          "wkid": "3857",
+          "id": "seattle_busservice",
+          "category": {
+            "title": "Seattle Bus Service",
+            "description": "Buses in Seattle"
+          },
+          "displayCount": "100",
+          "infoTemplate": {
+            "title": "${BusNo}",
+            "content": "Bus No: ${BusNo}<br>Heading: ${Heading}°<br>RouteID: ${RouteID}<br>"
+          },
+          "symbol": {
+            "type": "esriPMS",
+            "url": "resource('${app}:images/bus.png')",
+            "contentType": "image/png",
+            "color": null,
+            "width": 16,
+            "height": 16,
+            "angle": 0,
+            "xoffset": 0,
+            "yoffset": 0
+          }
+        }
+      ],
+      "baseLayer": [
+        {
+          "id": "background1",
+          "title": "${service.streets}",
+          "service": "streets",
+          "layers": [
+            "*"
+          ],
+          "enabled": false
+        },
+        {
+          "id": "background3",
+          "title": "${service.topo}",
+          "service": "worldTopo",
+          "layers": [
+            "*"
+          ],
+          "enabled": true
+        }
+      ]
+    }
+  ]
+}
