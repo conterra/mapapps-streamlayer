@@ -19,7 +19,6 @@
             "toolrules",
             "basemaptoggler"
         ],
-        "skipBundles": [],
         "require": ["${app}.app"],
         "i18n": ["bundle"]
     },
@@ -77,21 +76,13 @@
                             ],
                             "baseLayer": [
                                 {
-                                    "id": "background1",
                                     "title": "${service.streets}",
                                     "service": "streets",
-                                    "layers": [
-                                        "*"
-                                    ],
                                     "enabled": false
                                 },
                                 {
-                                    "id": "background3",
                                     "title": "${service.topo}",
                                     "service": "worldTopo",
-                                    "layers": [
-                                        "*"
-                                    ],
                                     "enabled": true
                                 }
                             ]

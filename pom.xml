@@ -447,7 +447,7 @@
         </plugins>
     </build>
     <scm>
-        <developerConnection>scm:git:git@github.com:conterra/mapapps-remote-project-blueprint.git</developerConnection>
+        <developerConnection>scm:git:git@github.com:conterra/mapapps-streamlayer.git</developerConnection>
     </scm>
     <distributionManagement>
         <repository>
