@@ -1,42 +1,43 @@
 {
-  "Bundle-SymbolicName": "bustracker",
-  "Bundle-Version": "1.0",
-  "Bundle-Name": "bustracker",
-  "Bundle-Description": "detecting busses from geoevent services in bbox",
-  "Bundle-Vendor": "con terra GmbH",
-  "Bundle-Localization": [],
-  "Bundle-RequiredExecutionEnvironment": [
-    "IE:[10,]",
-    "FF:[29,]",
-    "Chrome:[27,]",
-    "Safari:[7.1,"
-  ],
-  "Components": [
-    {
-      "name": "BBoxNotification",
-      "propertiesConstructor": true,
-      "properties": {
-        "streamlayerNodeId": "seattle_busservice",
-        "glasspaneNodeId": "bbox"
-      },
-      "references": [
+    "Bundle-SymbolicName": "bustracker",
+    "Bundle-Version": "1.0",
+    "Bundle-Name": "bustracker",
+    "Bundle-Description": "detecting busses from geoevent services in bbox",
+    "Bundle-Vendor": "con terra GmbH",
+    "Product-Name": "map.apps Developer Network",
+    "Bundle-Localization": [],
+    "Bundle-RequiredExecutionEnvironment": [
+        "IE:[10,]",
+        "FF:[29,]",
+        "Chrome:[27,]",
+        "Safari:[7.1,"
+    ],
+    "Components": [
         {
-          "name": "_esriMap",
-          "providing": "esri.Map"
-        },
-        {
-          "name": "_mapModel",
-          "providing": "ct.mapping.map.MapModel"
-        },
-        {
-          "name": "_esriMapReference",
-          "providing": "ct.mapping.map.EsriMapReference"
-        },
-        {
-          "name": "logService",
-          "providing": "ct.framework.api.LogService"
+            "name": "BBoxNotification",
+            "propertiesConstructor": true,
+            "properties": {
+                "streamlayerNodeId": "seattle_busservice",
+                "glasspaneNodeId": "bbox"
+            },
+            "references": [
+                {
+                    "name": "_esriMap",
+                    "providing": "esri.Map"
+                },
+                {
+                    "name": "_mapModel",
+                    "providing": "ct.mapping.map.MapModel"
+                },
+                {
+                    "name": "_esriMapReference",
+                    "providing": "ct.mapping.map.EsriMapReference"
+                },
+                {
+                    "name": "logService",
+                    "providing": "ct.framework.api.LogService"
+                }
+            ]
         }
-      ]
-    }
-  ]
+    ]
 }
