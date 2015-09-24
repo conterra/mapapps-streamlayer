@@ -1,28 +1,72 @@
 {
-    "load": {
-        "bundleLocations" : ["localbundles","bundles"],
-        "allowedBundles" : ["notifier","wizard","streamlayerservice","bustracker","system","splashscreen","map","themes","templates","templatelayout","windowmanager","toolset","toolrules","basemaptoggler"],
-        "skipBundles" : [],
-        "require" : ["${app}.app"],
-        "i18n": ["bundle"]
-    },
-    "bundles" : {
-        "map" : {
-            "MapState" : {
-                "initialExtent": {
-                    "xmin": -13652648.195859605,
-                    "xmax": -13585956.888680877,
-                    "ymin": 6022016.456696275,
-                    "ymax": 6056948.178622554,
-                    "wkid": 3857
-                }
-            },
-            "MapModelFactory" : {
-                "_configLocation" : "${app}:services-init.json"
-            },
-            "MappingResourceRegistryFactory" : {
-                "_knownServicesLocation" : "${app}:services.json"
-            }
-        }
-    }
+	"load": {
+		"bundleLocations": ["localbundles",
+		"bundles"],
+		"allowedBundles": ["notifier",
+		"streamlayerservice",
+		"bustracker",
+		"system",
+		"splashscreen",
+		"map",
+		"themes",
+		"templates",
+		"templatelayout",
+		"windowmanager",
+		"toolset",
+		"toolrules",
+		"basemaptoggler"],
+		"skipBundles": [],
+		"require": ["${app}.app"],
+		"i18n": ["bundle"]
+	},
+	"bundles": {
+		"custominfo": {
+			-"CustomInfoToggleTool": [-{
+				-"widgetSettings": {
+					-"content": "${application.description}",
+					-"window": {
+						-"marginBox": {
+							-"w": 280,
+							-"h": 270,
+							-"t": 60,
+							-"l": 20-
+						},
+						-"draggable": true,
+						-"closable": true,
+						-"modal": false,
+						-"maximizable": false,
+						-"resizable": true,
+						-"title": "${application.infoTitle}"-
+					}-
+				},
+				-"rules": {
+					-"groups": "custominfo",
+					-"activateOnStartup": true-
+				},
+				-"type": "IMPRINT",
+				-"toolClass": "ctInfo",
+				-"title": "${application.infoTitle}",
+				-"tooltip": "${application.infoTitle}",
+				-"togglable": true,
+				-"id": "AppInfoCustomInfoTool"-
+			}-]-
+		},
+		"map": {
+			"MapState": {
+				"initialExtent": {
+					"xmin": -13652648.195859605,
+					"xmax": -13585956.888680877,
+					"ymin": 6022016.456696275,
+					"ymax": 6056948.178622554,
+					"wkid": 3857
+				}
+			},
+			"MapModelFactory": {
+				"_configLocation": "${app}:services-init.json"
+			},
+			"MappingResourceRegistryFactory": {
+				"_knownServicesLocation": "${app}:services.json"
+			}
+		}
+	}
 }
