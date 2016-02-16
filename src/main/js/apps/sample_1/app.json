@@ -58,20 +58,13 @@
                 "_knownServices": {
                     "services": [
                         {
-                            "id": "flight_aware_position",
-                            "url": "ws://RS216171.RS.HOSTEUROPE.DE:6180/arcgis/ws/services/FlightAwarePosition_Stream/StreamServer/subscribe",
-                            "type": "STREAM_LAYER",
-                            "title": "FlightAwarePosition",
-                            "description": "FlightAwarePosition"
-                        },
-                        {
                             "id": "satellite_streamlayer",
                             "url": "ws://geoeventsample3.esri.com:8080/satelliteservice",
                             "type": "STREAM_LAYER"
                         },
                         {
-                            "id": "darkbase",
-                            "url": "http://services.arcgisonline.com/arcgis/rest/services/Canvas/World_Dark_Gray_Base/MapServer",
+                            "id": "lightbase",
+                            "url": "http://services.arcgisonline.com/arcgis/rest/services/Canvas/World_Light_Gray_Base/MapServer",
                             "type": "AGS_TILED"
                         }
                     ]
@@ -93,35 +86,7 @@
                     "maps": [{
                             "id": "default",
                             "glass_pane": [],
-                            "operationalLayer": [
-                                /*{
-                                    "title": "FlightAwarePosition",
-                                    "description": "FlightAwarePosition",
-                                    "enabled": true,
-                                    "service": "flight_aware_position",
-                                    "wkid": "3857",
-                                    "id": "flight_aware_position_layer",
-                                    "category": {
-                                        "title": "FlightAwarePosition",
-                                        "description": "FlightAwarePosition"
-                                    },
-                                    "displayCount": "1000",
-                                    "infoTemplate": {
-                                        "title": "${ident}",
-                                        "content": "Ident: ${ident}"
-                                    },
-                                    "symbol": {
-                                        "type": "esriPMS",
-                                        "url": "resource('${app}:images/airplane.png')",
-                                        "contentType": "image/png",
-                                        "color": null,
-                                        "width": 32,
-                                        "height": 32,
-                                        "angle": 0,
-                                        "xoffset": 0,
-                                        "yoffset": 0
-                                    }
-                                },*/
+                            "operationalLayer": [,
                                 {
                                     "title": "${service.satellite.title}",
                                     "enabled": true,
@@ -133,6 +98,17 @@
                                         "content": "Timestamp: ${DateTimeStamp}<br>Altitude: ${AltitudeMeters}m<br>Heading: ${Heading}\u00B0"
                                     },
                                     "symbol": {
+                                        "type": "esriPMS",
+                                        "url": "resource('${app}:images/satellite.png')",
+                                        "contentType": "image/png",
+                                        "color": null,
+                                        "width": 32,
+                                        "height": 32,
+                                        "angle": 0,
+                                        "xoffset": 0,
+                                        "yoffset": 0
+                                    }
+                                    /*,"symbol": {
                                         "color": [30, 122, 176, 150],
                                         "size": 9,
                                         "angle": 0,
@@ -146,14 +122,14 @@
                                             "type": "esriSLS",
                                             "style": "esriSLSSolid"
                                         }
-                                    }
+                                    }*/
                                 }
                             ],
                             "baseLayer": [
                                 {
                                     "id": "background1",
-                                    "title": "${service.darkbase}",
-                                    "service": "darkbase",
+                                    "title": "${service.lightbase}",
+                                    "service": "lightbase",
                                     "layers": ["*"],
                                     "enabled": true
                                 }
