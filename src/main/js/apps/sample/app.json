@@ -106,7 +106,6 @@
               "id": "default",
               "glass_pane": [],
               "operationalLayer": [
-                ,
             {
               "title": "${service.satellite.title}",
               "enabled": true,
@@ -128,21 +127,6 @@
                 "xoffset": 0,
                 "yoffset": 0
               }
-              /*,"symbol": {
-                  "color": [30, 122, 176, 150],
-                  "size": 9,
-                  "angle": 0,
-                  "xoffset": 0,
-                  "yoffset": 0,
-                  "type": "esriSMS",
-                  "style": "esriSMSCircle",
-                  "outline": {
-                      "color": [5, 122, 176, 150],
-                      "width": 0,
-                      "type": "esriSLS",
-                      "style": "esriSLSSolid"
-                  }
-              }*/
             }
           ],
           "baseLayer": [
