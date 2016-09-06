@@ -26,6 +26,33 @@ Installation Guide
   }
 }
 ```
+3. At least add the StreamLayer to the operational layers.
+```
+"operationalLayer": [
+  {
+    "title": "${service.satellite.title}",
+    "enabled": true,
+    "service": "satellite_streamlayer",
+    "wkid": "3857",
+    "displayCount": "1000",
+    "infoTemplate": {
+      "title": "Satellite Name: ${SatelliteName}",
+      "content": "Timestamp: ${DateTimeStamp}<br>Altitude: ${AltitudeMeters}m<br>Heading: ${Heading}\u00B0"
+    },
+    "symbol": {
+      "type": "esriPMS",
+      "url": "resource('${app}:images/satellite.png')",
+      "contentType": "image/png",
+      "color": null,
+      "width": 32,
+      "height": 32,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0
+    }
+  }
+]
+```
 
 ### Define the mapapps remote base
 Before you can run the project you have to define the mapapps.remote.base property in the pom.xml-file:
