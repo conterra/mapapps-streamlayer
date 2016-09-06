@@ -11,8 +11,8 @@ This bundle requires your browser to support HTML5 web sockets. Therefore you sh
 
 Installation Guide
 ------------------
-1. First, you need to add the bundle "streamlayerservice" to your app.
-2. After that, add a StreamService to your MappingResourceRegistryFactory.
+- First, you need to add the bundle "streamlayerservice" to your app.
+- After that, add a StreamService to your MappingResourceRegistryFactory.
 ```
 "MappingResourceRegistryFactory": {
   "_knownServices": {
@@ -26,7 +26,7 @@ Installation Guide
   }
 }
 ```
-3. At least add the StreamLayer to the operational layers.
+- Finally add the StreamLayer to the operational layers.
 ```
 "operationalLayer": [
   {
