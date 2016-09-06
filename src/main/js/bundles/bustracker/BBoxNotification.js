@@ -53,9 +53,9 @@ define([
             on(esriLayer, "message", lang.hitch(this, this.checkForContamination));
         },
         checkForContamination: function(message){
-            var geometry = message[0].geometry;
+            var geometry = message.geometry;
             if (this.polygon.contains(new Point([geometry.x, geometry.y], new SpatialReference({wkid: geometry.spatialReference.wkid})))) {
-                this.logService.warn("Bus " + message[0].attributes.RouteID + " in contamination area detected, heading " + message[0].attributes.Heading + "°!");
+                this.logService.warn("Bus " + message.attributes.RouteID + " in contamination area detected, heading " + message.attributes.Heading + "°!");
             }
         },
         destroy: function() {

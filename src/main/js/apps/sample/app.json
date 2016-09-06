@@ -1,134 +1,200 @@
 {
-    "load": {
-        "bundleLocations": [
-            "localbundles",
-            "bundles"
-        ],
-        "allowedBundles": [
-            "notifier",
-            "streamlayerservice",
-            "bustracker",
-            "system",
-            "splashscreen",
-            "map",
-            "themes",
-            "templates",
-            "templatelayout",
-            "windowmanager",
-            "toolset",
-            "toolrules",
-            "basemaptoggler",
-            "banner"
-        ],
-        "require": ["${app}.app"],
-        "i18n": ["bundle"]
+  "properties": {
+    "title": "StreamLayer Sample"
+  },
+  "load": {
+    "bundleLocations": [
+      "localbundles",
+      "bundles"
+    ],
+    "allowedBundles": [
+      "custominfo",
+      "streamlayerservice",
+      "system",
+      "splashscreen",
+      "map",
+      "toolset",
+      "console",
+      "themes",
+      "templates",
+      "templatelayout",
+      "toolrules",
+      "banner"
+    ],
+    "require": [
+      "${app}.app"
+    ],
+    "i18n": [
+      "bundle"
+    ]
+  },
+  "bundles": {
+    "banner": {
+      "BannerWidget": {
+        "label": "Developer Network",
+        "image": "https://www.conterra.de/~/media/conterra/images/site_logos/conterra-logo.ashx",
+        "imagePosition": "above",
+        "link": "http://developernetwork.conterra.de"
+      }
     },
-    "bundles": {
-        "banner": {
-            "BannerWidget": {
-                "label": "Developer Network",
-                "image": "https://www.conterra.de/~/media/conterra/images/site_logos/conterra-logo.ashx",
-                "imagePosition": "above",
-                "link": "http://developernetwork.conterra.de"
+    "custominfo": {
+      "CustomInfoToggleTool": [
+        {
+          "widgetSettings": {
+            "content": "${application.description}",
+            "window": {
+              "marginBox": {
+                "w": 280,
+                "h": 270,
+                "t": 60,
+                "l": 20
+              },
+              "draggable": true,
+              "closable": true,
+              "modal": false,
+              "maximizable": false,
+              "resizable": true,
+              "title": "${application.infoTitle}"
             }
-        },
-        "map": {
-            "MapState": {
-                "initialExtent": {
-                    "xmin": -13652648.195859605,
-                    "xmax": -13585956.888680877,
-                    "ymin": 6022016.456696275,
-                    "ymax": 6056948.178622554,
-                    "wkid": 3857
-                }
-            },
-            "MapModelFactory": {
-                "_configData": {
-                    "maps": [
-                        {
-                            "id": "default",
-                            "glass_pane": [
-                                {
-                                    "id": "bbox",
-                                    "enabled": true,
-                                    "graphics": []
-                                }
-                            ],
-                            "operationalLayer": [
-                                {
-                                    "title": "Seattle Bus Service",
-                                    "enabled": true,
-                                    "service": "seattle_busservice",
-                                    "wkid": "3857",
-                                    "id": "seattle_busservice",
-                                    "category": {
-                                        "title": "Seattle Bus Service",
-                                        "description": "Buses in Seattle"
-                                    },
-                                    "displayCount": "100",
-                                    "infoTemplate": {
-                                        "title": "${BusNo}",
-                                        "content": "Bus No: ${BusNo}<br>Heading: ${Heading}°<br>RouteID: ${RouteID}<br>"
-                                    },
-                                    "symbol": {
-                                        "type": "esriPMS",
-                                        "url": "resource('${app}:images/bus.png')",
-                                        "contentType": "image/png",
-                                        "color": null,
-                                        "width": 16,
-                                        "height": 16,
-                                        "angle": 0,
-                                        "xoffset": 0,
-                                        "yoffset": 0
-                                    }
-                                }
-                            ],
-                            "baseLayer": [
-                                {
-                                    "title": "${service.streets}",
-                                    "service": "streets",
-                                    "enabled": false
-                                },
-                                {
-                                    "title": "${service.topo}",
-                                    "service": "worldTopo",
-                                    "enabled": true
-                                }
-                            ]
-                        }
-                    ]
-                }
-            },
-            "MappingResourceRegistryFactory": {
-                "_knownServices": {
-                    "services": [
-                        {
-                            "id": "twitter_streamlayer",
-                            "url": "ws://geoeventsample3.esri.com:8080/satelliteservice",
-                            "type": "STREAM_LAYER",
-                            "title": "Twitter StreamLayer",
-                            "description": "Tweets about android, iPad and iPhone"
-                        },
-                        {
-                            "id": "seattle_busservice",
-                            "url": "ws://geoeventsample3.esri.com:8080/seattlebusservice",
-                            "type": "STREAM_LAYER",
-                            "title": "Seattle Bus Service",
-                            "description": "Buses in Seattle"
-                        },
-                        {
-                            "id": "worldTopo",
-                            "type": "AGS_TILED",
-                            "url": "http://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer"
-                        },
-                        {
-                            "id": "streets",
-                            "type": "AGS_TILED",
-                            "url": "http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer"
-                        }
-                    ]
-                }
-            }
+          },
+          "rules": {
+            "groups": "custominfo",
+            "activateOnStartup": true
+          },
+          "type": "IMPRINT",
+          "toolClass": "ctInfo",
+          "title": "${application.infoTitle}",
+          "tooltip": "${application.infoTitle}",
+          "togglable": true,
+          "id": "AppInfoCustomInfoTool"
         }
+      ],
+      "enabled": true
+    },
+    "map": {
+      "MappingResourceRegistryFactory": {
+        "_knownServices": {
+          "services": [
+            {
+              "id": "satellite_streamlayer",
+              "url": "wss://geoeventsample3.esri.com:8443/arcgis/ws/services/WorldSatellites/StreamServer/subscribe",
+              "type": "STREAM_LAYER"
+            },
+            {
+              "id": "lightbase",
+              "url": "http://services.arcgisonline.com/arcgis/rest/services/Canvas/World_Light_Gray_Base/MapServer",
+              "type": "AGS_TILED"
+            }
+          ]
+        }
+      },
+      "MapState": {
+        "initialExtent": {
+          "xmin": -18014708.333775878,
+          "ymin": -5496791.105604958,
+          "xmax": 16352013.099489005,
+          "ymax": 12153435.96977697,
+          "spatialReference": {
+            "wkid": 3857
+          }
+        }
+      },
+      "MapModelFactory": {
+        "_configData": {
+          "maps": [
+            {
+              "id": "default",
+              "glass_pane": [],
+              "operationalLayer": [
+                ,
+            {
+              "title": "${service.satellite.title}",
+              "enabled": true,
+              "service": "satellite_streamlayer",
+              "wkid": "3857",
+              "displayCount": "1000",
+              "infoTemplate": {
+                "title": "Satellite Name: ${SatelliteName}",
+                "content": "Timestamp: ${DateTimeStamp}<br>Altitude: ${AltitudeMeters}m<br>Heading: ${Heading}\u00B0"
+              },
+              "symbol": {
+                "type": "esriPMS",
+                "url": "resource('${app}:images/satellite.png')",
+                "contentType": "image/png",
+                "color": null,
+                "width": 32,
+                "height": 32,
+                "angle": 0,
+                "xoffset": 0,
+                "yoffset": 0
+              }
+              /*,"symbol": {
+                  "color": [30, 122, 176, 150],
+                  "size": 9,
+                  "angle": 0,
+                  "xoffset": 0,
+                  "yoffset": 0,
+                  "type": "esriSMS",
+                  "style": "esriSMSCircle",
+                  "outline": {
+                      "color": [5, 122, 176, 150],
+                      "width": 0,
+                      "type": "esriSLS",
+                      "style": "esriSLSSolid"
+                  }
+              }*/
+            }
+          ],
+          "baseLayer": [
+            {
+              "id": "background1",
+              "title": "${service.lightbase}",
+              "service": "lightbase",
+              "layers": [
+                "*"
+              ],
+              "enabled": true
+            }
+          ]
+        }
+      ]
+      }
     }
+  },
+  "themes": {
+    "ThemeSelector": {
+      "componentEnabled": false
+    }
+  },
+  "templates": {
+    "TemplateSelector": {
+      "componentEnabled": false
+    }
+  },
+  "toolset": {
+    "ToolsetManager": {
+      "toolsets": [
+        {
+          "id": "mapview_tools",
+          "title": "${toolsets.mapviewTools}",
+          "tooltip": "${toolsets.mapviewToolsTooltip}",
+          "tools": [
+            "zoomInClickTool",
+            "zoomOutClickTool",
+            "locateme",
+            "magnifier",
+            "overviewmap",
+            "AppInfoCustomInfoTool",
+            "*CustomInfoTool"
+          ],
+          "container": "map",
+          "max_horizontal": 1,
+          "windowType": "css_positioned",
+          "cssClass": "notitle muted mapview_tools",
+          "deactivateToolsOnHide": true
+        }
+      ]
+    }
+  }
+}
 }
