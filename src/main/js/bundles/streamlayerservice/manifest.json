@@ -4,7 +4,7 @@
     "Bundle-Name": "streamlayerservice",
     "Bundle-Description": "adds streamlayer-services to mapmodel",
     "Bundle-Vendor": "con terra GmbH",
-    "Product-Name": "con terra Developer Network",
+    "Product-Name": "devnet-mapapps-streamlayer",
     "Bundle-Localization": [],
     "Bundle-RequiredExecutionEnvironment": ["IE:[10,]", "FF:[29,]", "Chrome:[27,]", "Safari:[7.1,"],
     "Bundle-StartLevel": 10,
