@@ -4,7 +4,7 @@
     "Bundle-Name": "bustracker",
     "Bundle-Description": "detecting busses from geoevent services in bbox",
     "Bundle-Vendor": "con terra GmbH",
-    "Product-Name": "con terra Developer Network",
+    "Product-Name": "devnet-mapapps-streamlayer",
     "Bundle-Localization": [],
     "Bundle-RequiredExecutionEnvironment": [
         "IE:[10,]",
