@@ -1,6 +1,7 @@
 {
   "properties": {
-    "title": "StreamLayer Sample"
+    "title": "StreamLayer Sample",
+    "amdPackages": "apprt@^3.2.1"
   },
   "load": {
     "bundleLocations": [
@@ -8,18 +9,18 @@
       "bundles"
     ],
     "allowedBundles": [
-      "custominfo",
-      "streamlayerservice",
-      "system",
-      "splashscreen",
-      "map",
-      "toolset",
-      "console",
-      "themes",
-      "templates",
-      "templatelayout",
-      "toolrules",
-      "banner"
+      "custominfo@^3.2.1",
+      "system@^3.2.1",
+      "splashscreen@^3.2.1",
+      "map@^3.2.1",
+      "toolset@^3.2.1",
+      "console@^3.2.1",
+      "themes@^3.2.1",
+      "templates@^3.2.1",
+      "templatelayout@^3.2.1",
+      "toolrules@^3.2.1",
+      "banner@^3.2.1",
+      "streamlayerservice"
     ],
     "require": [
       "${app}.app"

@@ -1,6 +1,7 @@
 {
   "properties": {
-    "title": "Bus-Tracker"
+    "title": "Bus-Tracker",
+    "amdPackages": "apprt@^3.2.1"
   },
   "load": {
     "bundleLocations": [
@@ -8,20 +9,20 @@
       "bundles"
     ],
     "allowedBundles": [
-      "notifier",
-      "streamlayerservice",
-      "bustracker",
-      "system",
-      "splashscreen",
-      "map",
-      "themes",
-      "templates",
-      "templatelayout",
-      "windowmanager",
-      "toolset",
-      "toolrules",
-      "basemaptoggler",
-      "banner"
+      "notifier@^3.2.1",
+      "streamlayerservice@^3.2.1",      
+      "system@^3.2.1",
+      "splashscreen@^3.2.1",
+      "map@^3.2.1",
+      "themes@^3.2.1",
+      "templates@^3.2.1",
+      "templatelayout@^3.2.1",
+      "windowmanager@^3.2.1",
+      "toolset@^3.2.1",
+      "toolrules@^3.2.1",
+      "basemaptoggler@^3.2.1",
+      "banner@^3.2.1",
+      "bustracker"
     ],
     "require": [
       "${app}.app"
