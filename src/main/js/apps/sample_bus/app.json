@@ -10,7 +10,6 @@
     ],
     "allowedBundles": [
       "notifier@^3.2.1",
-      "streamlayerservice@^3.2.1",      
       "system@^3.2.1",
       "splashscreen@^3.2.1",
       "map@^3.2.1",
@@ -22,6 +21,7 @@
       "toolrules@^3.2.1",
       "basemaptoggler@^3.2.1",
       "banner@^3.2.1",
+      "streamlayerservice",
       "bustracker"
     ],
     "require": [
