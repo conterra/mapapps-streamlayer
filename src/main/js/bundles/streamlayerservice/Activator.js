@@ -40,24 +40,17 @@ define([
                             var coordinateTransformer = bundleContext.getService(coordinateTransformerReference);
                             var eventServiceReference = bundleContext.getServiceReferences("ct.framework.api.EventService")[0];
                             var eventService = bundleContext.getService(eventServiceReference);
-
-                            var featureCollection = {
-                                layerDefinition: {
-                                    "fields": []
-                                },
-                                "featureSet": null
-                            };
-
+                            
                             var displayCount = node.get("displayCount");
                             var infoTemplate = node.get("infoTemplate");
                             var targetCRS = node.get("wkid");
+                            var maximumTrackPoints = node.get("maximumTrackPoints");
+                            if(maximumTrackPoints === 'undefined')maximumTrackPoints = 1;
 
-                            // create Streamlayer from Url with layerDefinition
-                            var layer = new StreamLayer(featureCollection, {
-                                socketUrl: url,
-                                purgeOptions: {
-                                    displayCount: displayCount
-                                },
+                            var layer = new StreamLayer(url, {
+                                purgeOptions: {displayCount: displayCount},
+                                maximumTrackPoints: maximumTrackPoints,
+                                socketDirection: "subscribe",
                                 infoTemplate: new InfoTemplate(infoTemplate.title, infoTemplate.content)
                             });
 
@@ -79,8 +72,7 @@ define([
                                     message: message
                                 });
                             });
-
-                            // Add renderer from layer-settings
+                            
                             this.addRenderer(layer, node.get("symbol"));
                             return layer;
                         },
