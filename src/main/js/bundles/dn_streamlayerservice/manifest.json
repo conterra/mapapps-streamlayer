@@ -1,6 +1,6 @@
 {
     "Bundle-SymbolicName": "dn_streamlayerservice",
-    "Bundle-Version": "1.0.1-SNAPSHOT",
+    "Bundle-Version": "1.0.1",
     "Bundle-Name": "streamlayerservice",
     "Bundle-Description": "adds streamlayer-services to mapmodel",
     "Bundle-Vendor": "con terra GmbH",
