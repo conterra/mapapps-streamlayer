@@ -18,8 +18,8 @@ Installation Guide
   "_knownServices": {
     "services": [
       {
-        "id": "satellite_streamlayer",
-        "url": "wss://geoeventsample3.esri.com:8443/arcgis/ws/services/WorldSatellites/StreamServer/subscribe",
+        "id": "boat_streamlayer",
+        "url": "https://geoeventsample1.esri.com:6443/arcgis/rest/services/PanamaTugBoat/StreamServer",
         "type": "STREAM_LAYER"
       }
     ]
@@ -30,18 +30,19 @@ Installation Guide
 ```
 "operationalLayer": [
   {
-    "title": "${service.satellite.title}",
+    "title": "${service.boat.title}",
     "enabled": true,
-    "service": "satellite_streamlayer",
-    "wkid": "3857",
+    "service": "boat_streamlayer",
+    "wkid": "3857",                  
     "displayCount": "1000",
+    "maximumTrackPoints": 1,
     "infoTemplate": {
-      "title": "Satellite Name: ${SatelliteName}",
-      "content": "Timestamp: ${DateTimeStamp}<br>Altitude: ${AltitudeMeters}m<br>Heading: ${Heading}\u00B0"
+      "title": "Vessel Name: ${vessel_name}",
+      "content": "Flag: ${flag}<br>Heading: ${heading}\u00B0"
     },
     "symbol": {
       "type": "esriPMS",
-      "url": "resource('${app}:images/satellite.png')",
+      "url": "resource('${app}:images/ship.png')",
       "contentType": "image/png",
       "color": null,
       "width": 32,
