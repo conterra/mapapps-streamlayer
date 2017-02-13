@@ -20,7 +20,7 @@
       "templatelayout@^3.2.1",
       "toolrules@^3.2.1",
       "banner@^3.2.1",
-      "streamlayerservice"
+      "dn_streamlayerservice"
     ],
     "require": [
       "${app}.app"
