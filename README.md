@@ -3,7 +3,8 @@ The streamlayer bundle makes ArcGIS Service of type "STREAM_LAYER" usable in map
 
 A stream layer uses HTML5 websockets to connect to a webserver that emits geographic features continuously. For more information about esri streamlayer read here: https://developers.arcgis.com/javascript/jsapi/streamlayer-amd.html
 
-### Sample App ###
+Sample App
+------------------
 http://www.mapapps.de/mapapps/resources/apps/downloads_streamlayer/index.html
 
 ### Note ###
@@ -55,6 +56,8 @@ Installation Guide
 ]
 ```
 
+Development Guide
+------------------
 ### Define the mapapps remote base
 Before you can run the project you have to define the mapapps.remote.base property in the pom.xml-file:
 `<mapapps.remote.base>http://%YOURSERVER%/ct-mapapps-webapp-%VERSION%</mapapps.remote.base>`
